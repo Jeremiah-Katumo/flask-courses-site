@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+    <form name="register" action="" method="GET" novalidate>
+        <fieldset class="form-group">
+            <legend>{{ title }}</legend>
+            {{ form.hidden_tag() }}
+            
+            <p>
+                {{ form.email.label }}<br>
+                {{ form.email }}
+                {% for errors in form.email.errors %}
+                    <span class="error-message">{{ errors }}</span>
+                {% endfor %}
+            </p>
+
+            <p>
+                {{ form.password.label }}<br>
+                {{ form.password }}
+                {% for errors in form.password.errors %}
+                    <span class="error-message">{{ errors }}</span>
+                {% endfor %}
+            </p>
+
+            <p>
+                {{ form.password_confirm.label }}<br>
+                {{ form.password_confirm}}
+                {% for errors in form.password_confirm.errors %}
+                    <span class="error-message">{{ errors }}</span>
+                {% endfor %}
+            </p>
+
+            <p>
+                {{ form.first_name.label }}<br>
+                {{ form.first_name }}
+                {% for errors in form.first_name.errors %}
+                    <span class="error-message">{{ errors }}</span>
+                {% endfor %}
+            </p>
+
+            <p>
+                {{ form.last_name.label }}<br>
+                {{ form.last_name }}
+                {% for errors in form.last_name.errors %}
+                    <span class="error-message">{{ errors }}</span>
+                {% endfor %}
+            </p>
+
+            <p>
+                {{ form.submit() }}
+            </p>
+        </fieldset>
+    </form>
+</div>
+</div>
+{% endblock %}

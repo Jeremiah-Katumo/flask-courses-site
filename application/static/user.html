@@ -1,0 +1,21 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="user-div">
+        <div class="col-md-12 text-center">
+            
+            <!-- The for loop accepts the user credentials as True if they exist in the user class else the user is unavailbale -->
+            {% for user in users %}
+            <dl>
+                <dt>User ID: {{ user.user_id }}</dt>
+                <dd>Email: {{ user.email }}</dd>
+                <dd>Password: {{ user.password }}</dd>
+            </dl>
+            {% else %}
+            <h3>No users yet!</h3>
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+<!-- we are adding this block conthent to the layout.html. This content will automatically be added to the empty block content in layout.html    -->
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <form name="login" action="" method="POST" novalidate>
+            <fieldset class="form-group">
+                <legend>{{ title }}</legend> <!-- Login title -->
+                {{ form.hidden_tag() }}      <!-- This form.hidden_tag() element defines an extra form field that is hidden, used by Flask-WTF to implement CSRF protection -->
+
+
+                <!-- The view function passes a NameForm instance that is 'LoginForm' from routes.py as an argument named form, the -->
+                <!-- ...template can generate a simple HTML form  form as follows: -->
+                <p>
+                    {{ form.email.label }} <br>
+                    {{ form.email(size=35) }}
+                    {% for error in form.email.errors %}
+                        <span class="error-message">{{ error }}</span>  <!-- this span tag returns an error message by printing the error using jinja2 template -->
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.password.label }} <br>
+                    {{ form.password(size=15) }}
+                    {% for error in form.password.errors %}
+                        <span class="error-message">{{ error }}</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.submit() }}                                <!-- this is a submit button written in form of jinja2 element -->
+                </p>
+            </fieldset>
+
+        </form>
+    </div>
+</div>
+</div>
+{% endblock %}
